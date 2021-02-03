@@ -10,10 +10,10 @@ import UIKit
 class Canvas: UIView {
     
     var lines  = [[CGPoint]]()
-    var lineWidth = 1.0
-    var lineColor : UIColor = .black
+    var lineWidth = 5.0
+    var lineColor = UIColor.black
     var lineWidthArray = [Double]()
-    
+    var lineColourArray = [UIColor]()
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -23,9 +23,13 @@ class Canvas: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         lines.append([CGPoint]())
+        lineWidthArray.append(lineWidth)
+        lineColourArray.append(lineColor)
     }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: self) {
             
@@ -43,22 +47,18 @@ class Canvas: UIView {
         super.draw(rect)
         
         if let context = UIGraphicsGetCurrentContext() {
-            
-            context.setStrokeColor(lineColor.cgColor)
-            
-            for line in lines {
-               for (index, point) in line.enumerated() {
+            for (lineIndex, line) in lines.enumerated() {
+                context.setStrokeColor(lineColourArray[lineIndex].cgColor)
+                context.setLineWidth(CGFloat(lineWidthArray[lineIndex]))
+                for (index, point) in line.enumerated() {
                     if index == 0 {
                         context.move(to: point)
                     } else {
                         context.addLine(to: point)
-                        context.setLineWidth(CGFloat(lineWidth))
                     }
                 }
+                context.strokePath()
             }
-            
-        context.strokePath()
-            
         }
        
     }
