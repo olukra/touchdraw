@@ -27,11 +27,17 @@
                                 <rect key="frame" x="20" y="832" width="36" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GgP-Cm-OMJ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="is2-B8-3AU">
                                 <rect key="frame" x="74" y="832" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Undo"/>
+                                <connections>
+                                    <action selector="undoButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t5Q-xP-ChF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fa-Yx-ISs">
                                 <rect key="frame" x="159" y="832" width="40" height="30"/>

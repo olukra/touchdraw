@@ -13,6 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var sliderValue: UISlider!
   
     
+    @IBAction func clearButtonPressed(_ sender: Any) {
+        canvas.clearCanvas()
+    }
+    
+    @IBAction func undoButtonPressed(_ sender: Any) {
+        canvas.undoLine()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(canvas)

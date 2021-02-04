@@ -41,8 +41,19 @@ class Canvas: UIView {
         self.setNeedsDisplay()
         
     }
-    
-    
+ 
+    func undoLine () {
+        let _ = lines.popLast()
+        let _ = lineWidthArray.popLast()
+        let _ = lineColourArray.popLast()
+        setNeedsDisplay()
+    }
+    func clearCanvas() {
+        lines.removeAll()
+        lineWidthArray.removeAll()
+        lineColourArray.removeAll()
+        setNeedsDisplay()
+    }
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
