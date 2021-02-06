@@ -28,15 +28,14 @@ class ViewController: UIViewController {
 
     
     @IBAction func colorChanged(_ sender: UIButton) {
-        canvas.lineColor = sender.backgroundColor!
-        print(canvas.lineColor)
+        canvas.changeLineColor(color: sender.backgroundColor!)
     }
     
     
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        canvas.lineWidth = Double(sliderValue.value)
-        canvas.setNeedsDisplay()
+        canvas.changeLineWith(widht: Double(sliderValue.value)) 
+       
     }
     
     

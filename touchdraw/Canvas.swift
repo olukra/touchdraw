@@ -9,14 +9,12 @@ import UIKit
 
 class Canvas: UIView {
     
-    var lines  = [[CGPoint]]()
+    var lines = [LineData]()
     var lineWidth = 5.0
     var lineColor = UIColor.black
-    var lineWidthArray = [Double]()
-    var lineColourArray = [UIColor]()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         backgroundColor = UIColor.gray
     }
     
@@ -25,52 +23,54 @@ class Canvas: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lines.append([CGPoint]())
-        lineWidthArray.append(lineWidth)
-        lineColourArray.append(lineColor)
+        lines.append(LineData(points: [], width: lineWidth, colour: lineColor))
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: self) {
-            
             if var lastLine = lines.popLast() {
-                lastLine.append(point)
+                lastLine.points.append(point)
                 lines.append(lastLine)
             }
         }
         self.setNeedsDisplay()
-        
     }
- 
+    
+    func changeLineColor(color: UIColor) {
+        lineColor = color
+    }
+    
+    func changeLineWith(widht: Double) {
+        lineWidth = widht
+    }
+    
     func undoLine () {
         let _ = lines.popLast()
-        let _ = lineWidthArray.popLast()
-        let _ = lineColourArray.popLast()
         setNeedsDisplay()
     }
+    
     func clearCanvas() {
         lines.removeAll()
-        lineWidthArray.removeAll()
-        lineColourArray.removeAll()
         setNeedsDisplay()
     }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         
         if let context = UIGraphicsGetCurrentContext() {
-            for (lineIndex, line) in lines.enumerated() {
-                context.setStrokeColor(lineColourArray[lineIndex].cgColor)
-                context.setLineWidth(CGFloat(lineWidthArray[lineIndex]))
-                for (index, point) in line.enumerated() {
+            for line in lines {
+                context.setStrokeColor(line.colour.cgColor)
+                context.setLineWidth(CGFloat(line.width))
+                for (index, point) in line.points.enumerated() {
                     if index == 0 {
                         context.move(to: point)
                     } else {
                         context.addLine(to: point)
                     }
                 }
-                context.strokePath()
+            context.strokePath()
             }
         }
-       
     }
+    
 }

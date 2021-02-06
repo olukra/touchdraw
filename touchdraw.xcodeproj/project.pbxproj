@@ -14,6 +14,7 @@
 		7C8B6C3525C93732001D1305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C8B6C3425C93732001D1305 /* Assets.xcassets */; };
 		7C8B6C3825C93732001D1305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C8B6C3625C93732001D1305 /* LaunchScreen.storyboard */; };
 		7C8B6C4125C93858001D1305 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8B6C4025C93858001D1305 /* Canvas.swift */; };
+		7CC71B0925CF166B00E00DD9 /* LineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC71B0825CF166B00E00DD9 /* LineData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7C8B6C3725C93732001D1305 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C8B6C3925C93732001D1305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C8B6C4025C93858001D1305 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		7CC71B0825CF166B00E00DD9 /* LineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				7C8B6C2F25C93731001D1305 /* ViewController.swift */,
 				7C8B6C3125C93731001D1305 /* Main.storyboard */,
 				7C8B6C4025C93858001D1305 /* Canvas.swift */,
+				7CC71B0825CF166B00E00DD9 /* LineData.swift */,
 				7C8B6C3425C93732001D1305 /* Assets.xcassets */,
 				7C8B6C3625C93732001D1305 /* LaunchScreen.storyboard */,
 				7C8B6C3925C93732001D1305 /* Info.plist */,
@@ -144,6 +147,7 @@
 				7C8B6C2C25C93731001D1305 /* AppDelegate.swift in Sources */,
 				7C8B6C2E25C93731001D1305 /* SceneDelegate.swift in Sources */,
 				7C8B6C4125C93858001D1305 /* Canvas.swift in Sources */,
+				7CC71B0925CF166B00E00DD9 /* LineData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
